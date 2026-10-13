@@ -374,3 +374,6 @@ body{overflow-x:clip}
 .hero-copy{padding-top:72px}
 @media(max-width:900px){.hero-art{top:-88px;height:calc(100% + 88px)}.hero-copy{padding-top:100px}}
 @media(max-width:650px){.hero-art{top:-62px;height:calc(100% + 62px)}.hero-copy{padding-top:96px}}
+
+.whatsapp-direct a{align-self:flex-start;margin-top:3px;padding:10px 13px;border-radius:3px;background:#168b53;color:#fff;transition:background .2s ease,transform .2s ease}
+.whatsapp-direct a:hover{background:#117342;transform:translateY(-1px)}
