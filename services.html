@@ -367,11 +367,29 @@ body{overflow-x:clip}
 }
 
 
-.services-hero{position:relative;display:flex;align-items:center;isolation:isolate;overflow:hidden;width:100%;max-width:none;min-height:560px;margin:0;padding:70px 0 55px}.services-hero-copy{position:relative;z-index:2;width:min(var(--max),calc(100% - 64px));max-width:var(--max);margin-inline:auto}.services-hero .kicker{margin-bottom:26px;color:#fff}.services-hero h1{font-size:clamp(56px,7.5vw,98px);color:#fff}.services-hero .hero-lede{max-width:520px;margin-top:25px;color:#fff}.services-hero .page-hero-foot{margin-top:48px;border-top:0;color:#fff}.services-hero-art{position:absolute;z-index:0;inset:0;width:100%;height:100%;overflow:hidden}.services-hero-art img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:right center}.services-hero-art:after{position:absolute;inset:0;content:"";background:linear-gradient(90deg,#071c32b8 0%,#071c3275 30%,transparent 55%);pointer-events:none}
+.services-hero{position:relative;display:flex;align-items:center;isolation:isolate;overflow:hidden;width:100%;max-width:none;min-height:560px;margin:0;padding:70px 0 55px}.services-hero-copy{position:relative;z-index:2;width:min(var(--max),calc(100% - 64px));max-width:var(--max);margin-inline:auto}.services-hero .kicker{margin-bottom:26px;color:#fff}.services-hero h1{font-size:clamp(56px,7.5vw,98px);color:#fff}.services-hero .hero-lede{max-width:520px;margin-top:25px;color:#fff}.services-hero .page-hero-foot{margin-top:48px;border-top:0;color:#fff}.services-hero-art{position:absolute;z-index:0;inset:0;width:100%;height:100%;overflow:hidden}.services-hero-art img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:right top}.services-hero-art:after{position:absolute;inset:0;content:"";background:linear-gradient(90deg,#071c32b8 0%,#071c3275 30%,transparent 55%);pointer-events:none}
 @media(max-width:900px){.services-hero{min-height:500px;padding-block:60px 45px}.services-hero-copy{width:min(var(--max),calc(100% - 42px))}.services-hero h1{font-size:clamp(48px,7vw,76px)}.services-hero .page-hero-foot{margin-top:32px}}
-@media(max-width:650px){.services-hero{min-height:560px;padding:48px 0 30px}.services-hero-copy{width:calc(100% - 38px)}.services-hero-art img{object-position:right center}.services-hero .page-hero-foot{margin-top:27px}}
+@media(max-width:650px){.services-hero{min-height:560px;padding:48px 0 30px}.services-hero-copy{width:calc(100% - 38px)}.services-hero-art img{object-position:right top}.services-hero .page-hero-foot{margin-top:27px}}
 
-  </style></head>
+  
+/* Shared page entry and hover motion. */
+@keyframes page-enter{from{opacity:0;transform:translate3d(0,18px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes art-enter{from{opacity:0}to{opacity:1}}
+.motion-enabled .hero-copy,.motion-enabled .page-hero,.motion-enabled .services-hero-copy,.motion-enabled .contact-hero-copy,.motion-enabled .work-hero-copy,.motion-enabled .thanks{animation:page-enter .72s cubic-bezier(.2,.7,.2,1) both}
+.motion-enabled .hero-art,.motion-enabled .services-hero-art,.motion-enabled .contact-hero-art,.motion-enabled .work-hero-art{animation:art-enter .9s ease .08s both}
+.motion-enabled .motion-item{opacity:0;transform:translate3d(0,22px,0) scale(.99);transition:opacity .65s cubic-bezier(.2,.7,.2,1),transform .65s cubic-bezier(.2,.7,.2,1);transition-delay:var(--motion-delay,0ms)}
+.motion-enabled .motion-item.is-visible{opacity:1;transform:translate3d(0,0,0) scale(1)}
+.button,.nav-cta,.feature-card,.portfolio-image,.portfolio-facts a,.teaser-list a,.text-link,.contact-whatsapp-button,.image-arrow{transition-timing-function:cubic-bezier(.2,.7,.2,1)}
+.button,.nav-cta,.portfolio-facts a,.contact-whatsapp-button{transition:transform .24s cubic-bezier(.2,.7,.2,1),box-shadow .24s,background-color .24s,color .24s}
+.button:hover,.nav-cta:hover,.portfolio-facts a:hover,.contact-whatsapp-button:hover{transform:translateY(-3px);box-shadow:0 9px 20px -12px #071c3270}
+.feature-card,.portfolio-image{will-change:transform}
+.feature-card:hover,.portfolio-image:hover{filter:drop-shadow(0 12px 14px #071c321c)}
+.feature-image img,.portfolio-image img,.about-image img{transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .35s}
+.feature-card:hover .feature-image img,.portfolio-image:hover img,.about-image:hover img{transform:scale(1.025)}
+.teaser-list a{transition:padding .28s cubic-bezier(.2,.7,.2,1),color .22s}
+@media(prefers-reduced-motion:reduce){.motion-enabled .hero-copy,.motion-enabled .page-hero,.motion-enabled .services-hero-copy,.motion-enabled .contact-hero-copy,.motion-enabled .work-hero-copy,.motion-enabled .thanks,.motion-enabled .hero-art,.motion-enabled .services-hero-art,.motion-enabled .contact-hero-art,.motion-enabled .work-hero-art{animation:none}.motion-enabled .motion-item{opacity:1;transform:none;transition:none}.button,.nav-cta,.feature-card,.portfolio-image,.portfolio-facts a,.teaser-list a,.text-link,.contact-whatsapp-button,.image-arrow,.feature-image img,.portfolio-image img,.about-image img{transition:none!important;transform:none!important;scroll-behavior:auto!important}}
+
+</style></head>
 <body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="wrap nav-wrap"><a class="brand" href="index.html"><img class="brand-image" src="assets/images/ee.png" alt="Visual"></a><button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button><nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="work.html">Work</a><a aria-current="page" href="services.html">Services</a><a href="about.html">About</a></nav><a class="nav-cta" href="contact.html">Contact us <span>↗</span></a></div></header>
 <main id="main"><header class="page-hero services-hero"><div class="services-hero-copy wrap"><h1>Digital, made<br><span class="ink-accent">to do more.</span></h1><p class="hero-lede">We pair sharp thinking with thoughtful execution to make your digital presence work harder for your business.</p></div><div class="services-hero-art"><img src="assets/images/serv.png" alt="Digital specialist using technology tools" width="1672" height="941"></div></header>
 <section class="service-details"><div class="wrap"><article class="service-detail"><span class="service-index">01 /</span><div><h2>Web design<br>& development</h2><p class="service-intro">A clear, considered home for your brand, built around your visitors and the actions you want them to take.</p></div><div class="service-includes"><p>Built around people, polished for every screen, ready to grow with you.</p><ul><li>Responsive websites and accessible interfaces</li><li>Content-managed websites and publishing platforms</li><li>Performance and search foundations</li><li>Information architecture and content direction</li></ul></div></article>
@@ -402,4 +420,27 @@ body{overflow-x:clip}
       menuButton.focus();
     }
   });
-  </script></body></html>
+  </script><script>
+(() => {
+  const revealSelector = 'main > section, .feature-card, .portfolio-item, .service-detail, .process-grid > *, .values-grid > *, .manifesto-grid > *, .contact-section > *, .about-story > *';
+  const candidates = [...document.querySelectorAll(revealSelector)].filter((el) => {
+    if (!el.matches('main > section')) return true;
+    return !el.querySelector('.feature-card,.portfolio-item,.service-detail,.process-grid > *, .values-grid > *, .manifesto-grid > *, .contact-section > *, .about-story > *');
+  });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  candidates.forEach((el, index) => {
+    el.classList.add('motion-item');
+    el.style.setProperty('--motion-delay', `${Math.min(index % 5, 4) * 70}ms`);
+  });
+  document.body.classList.add('motion-enabled');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+  candidates.forEach((el) => observer.observe(el));
+})();
+</script></body></html>

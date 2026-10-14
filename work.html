@@ -368,9 +368,52 @@ body{overflow-x:clip}
 
 
 .portfolio-info h2 a{color:inherit}.portfolio-info h2 a:hover{color:#e87524}.portfolio-facts a{display:inline-flex;align-items:center;border:1px solid #d1dae2;padding:7px 9px;font-family:var(--mono);font-size:9px;color:#536a80;transition:background .2s,color .2s}.portfolio-facts a:hover{background:#0b2b4f;color:#fff}
-  </style></head>
+
+
+.work-hero{position:relative;display:flex;align-items:center;isolation:isolate;overflow:hidden;width:100%;max-width:none;min-height:560px;margin:0;padding:70px 0 55px}
+.work-hero-copy{position:relative;z-index:2}
+.work-hero .kicker{color:#334254}
+.work-hero h1{color:#0b2b4f}
+.work-hero h1 .ink-accent{color:#e87524}
+.work-hero .hero-lede{max-width:520px;color:#334254}
+.work-hero-art{position:absolute;z-index:0;inset:0;width:100%;height:100%;overflow:hidden}
+.work-hero-art img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:right top}
+.work-hero-art:after{position:absolute;inset:0;content:"";background:linear-gradient(90deg,#f5f4ef 0%,#f5f4efd9 35%,#f5f4ef55 58%,transparent 78%);pointer-events:none}
+@media(max-width:900px){.work-hero{min-height:500px;padding-block:60px 45px}.work-hero-copy{width:min(var(--max),calc(100% - 42px))}}
+@media(max-width:650px){.work-hero{min-height:560px;padding:48px 0 30px}.work-hero-copy{width:calc(100% - 38px)}.work-hero-art img{object-position:right top}}
+
+
+  /* Float the project screenshots like dimensional browser panels. */
+  .portfolio{perspective:1400px;perspective-origin:50% 45%}
+  .portfolio-item .portfolio-image{border:7px solid #fff;border-radius:5px;transform-style:preserve-3d;backface-visibility:hidden;box-shadow:0 30px 45px -24px #071c3266,0 10px 18px -12px #071c324d;transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s;}
+  .portfolio-item:nth-of-type(odd) .portfolio-image{transform:rotateX(7deg) rotateY(-5deg) rotateZ(-2deg)}
+  .portfolio-item:nth-of-type(even) .portfolio-image{transform:rotateX(5deg) rotateY(4deg) rotateZ(1.5deg)}
+  .portfolio-item:hover .portfolio-image{transform:translateY(-7px) rotateX(2deg) rotateY(0) rotateZ(0);box-shadow:0 38px 52px -24px #071c3273,0 14px 22px -12px #071c325c}
+  .portfolio-item:hover .portfolio-image img{transform:none}
+  @media(max-width:650px){.portfolio-item .portfolio-image{border-width:5px}.portfolio-item:nth-of-type(n) .portfolio-image{transform:perspective(1000px) rotateX(3deg) rotateY(-2deg) rotateZ(-.7deg)}.portfolio-item:hover .portfolio-image{transform:translateY(-4px) perspective(1000px) rotateX(1deg) rotateY(0) rotateZ(0)}}
+  @media(prefers-reduced-motion:reduce){.portfolio-item .portfolio-image{transition:none}}
+
+  
+/* Shared page entry and hover motion. */
+@keyframes page-enter{from{opacity:0;transform:translate3d(0,18px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes art-enter{from{opacity:0}to{opacity:1}}
+.motion-enabled .hero-copy,.motion-enabled .page-hero,.motion-enabled .services-hero-copy,.motion-enabled .contact-hero-copy,.motion-enabled .work-hero-copy,.motion-enabled .thanks{animation:page-enter .72s cubic-bezier(.2,.7,.2,1) both}
+.motion-enabled .hero-art,.motion-enabled .services-hero-art,.motion-enabled .contact-hero-art,.motion-enabled .work-hero-art{animation:art-enter .9s ease .08s both}
+.motion-enabled .motion-item{opacity:0;transform:translate3d(0,22px,0) scale(.99);transition:opacity .65s cubic-bezier(.2,.7,.2,1),transform .65s cubic-bezier(.2,.7,.2,1);transition-delay:var(--motion-delay,0ms)}
+.motion-enabled .motion-item.is-visible{opacity:1;transform:translate3d(0,0,0) scale(1)}
+.button,.nav-cta,.feature-card,.portfolio-image,.portfolio-facts a,.teaser-list a,.text-link,.contact-whatsapp-button,.image-arrow{transition-timing-function:cubic-bezier(.2,.7,.2,1)}
+.button,.nav-cta,.portfolio-facts a,.contact-whatsapp-button{transition:transform .24s cubic-bezier(.2,.7,.2,1),box-shadow .24s,background-color .24s,color .24s}
+.button:hover,.nav-cta:hover,.portfolio-facts a:hover,.contact-whatsapp-button:hover{transform:translateY(-3px);box-shadow:0 9px 20px -12px #071c3270}
+.feature-card,.portfolio-image{will-change:transform}
+.feature-card:hover,.portfolio-image:hover{filter:drop-shadow(0 12px 14px #071c321c)}
+.feature-image img,.portfolio-image img,.about-image img{transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .35s}
+.feature-card:hover .feature-image img,.portfolio-image:hover img,.about-image:hover img{transform:scale(1.025)}
+.teaser-list a{transition:padding .28s cubic-bezier(.2,.7,.2,1),color .22s}
+@media(prefers-reduced-motion:reduce){.motion-enabled .hero-copy,.motion-enabled .page-hero,.motion-enabled .services-hero-copy,.motion-enabled .contact-hero-copy,.motion-enabled .work-hero-copy,.motion-enabled .thanks,.motion-enabled .hero-art,.motion-enabled .services-hero-art,.motion-enabled .contact-hero-art,.motion-enabled .work-hero-art{animation:none}.motion-enabled .motion-item{opacity:1;transform:none;transition:none}.button,.nav-cta,.feature-card,.portfolio-image,.portfolio-facts a,.teaser-list a,.text-link,.contact-whatsapp-button,.image-arrow,.feature-image img,.portfolio-image img,.about-image img{transition:none!important;transform:none!important;scroll-behavior:auto!important}}
+
+</style></head>
 <body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="wrap nav-wrap"><a class="brand" href="index.html"><img class="brand-image" src="assets/images/ee.png" alt="Visual"></a><button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button><nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="index.html">Home</a><a aria-current="page" href="work.html">Work</a><a href="services.html">Services</a><a href="about.html">About</a></nav><a class="nav-cta" href="contact.html">Contact us <span>↗</span></a></div></header>
-<main id="main"><header class="page-hero wrap"><p class="kicker"><span class="pulse"></span> Previous projects · 01</p><h1>Our previous<br><span class="ink-accent">projects.</span></h1><p class="hero-lede">A selection of websites and digital experiences built for our clients.</p><div class="page-hero-foot"><span>Client projects</span><span>Websites · Digital experiences</span></div></header>
+<main id="main"><header class="page-hero work-hero"><div class="work-hero-copy wrap"><h1>Our previous<br><span class="ink-accent">projects.</span></h1><p class="hero-lede">A selection of websites and digital experiences built for our clients.</p></div><div class="work-hero-art"><img src="assets/images/work.jpeg" alt="Digital designer working at a laptop" width="1365" height="768"></div></header>
 <section class="portfolio wrap"><article class="portfolio-item" id="anzunzu-commercial-exports"><a class="portfolio-image" href="https://anzunzucommercialexports.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Anzunzu Commercial Exports website"><img src="assets/images/anzunzu.png" alt="Screenshot of Anzunzu Commercial Exports website" loading="lazy"><span class="image-arrow">↗</span><span class="portfolio-number">01</span></a><div class="portfolio-info"><div><span class="eyebrow">Commercial exports</span><h2><a href="https://anzunzucommercialexports.com/" target="_blank" rel="noopener noreferrer">Anzunzu Commercial Exports</a></h2><p>Commercial export website and business presence.</p></div><div class="portfolio-facts"><a href="https://anzunzucommercialexports.com/" target="_blank" rel="noopener noreferrer">Visit website ↗</a></div></div></article>
 <article class="portfolio-item portfolio-offset" id="ubuntu-clearing-forwarding"><a class="portfolio-image" href="https://ubuntuclearingandfowarding.co.ke/" target="_blank" rel="noopener noreferrer" aria-label="Visit Ubuntu Clearing &amp; Forwarding website"><img src="assets/images/ubuntu1.png" alt="Screenshot of Ubuntu Clearing and Forwarding website" loading="lazy"><span class="image-arrow">↗</span><span class="portfolio-number">02</span></a><div class="portfolio-info"><div><span class="eyebrow">Clearing &amp; forwarding</span><h2><a href="https://ubuntuclearingandfowarding.co.ke/" target="_blank" rel="noopener noreferrer">Ubuntu Clearing &amp; Forwarding</a></h2><p>Clearing and forwarding services website.</p></div><div class="portfolio-facts"><a href="https://ubuntuclearingandfowarding.co.ke/" target="_blank" rel="noopener noreferrer">Visit website ↗</a></div></div></article>
 <article class="portfolio-item" id="oplos-marketing"><a class="portfolio-image" href="https://oplosmarketing.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Oplos Marketing website"><img src="assets/images/oplos.png" alt="Screenshot of Oplos Marketing website" loading="lazy"><span class="image-arrow">↗</span><span class="portfolio-number">03</span></a><div class="portfolio-info"><div><span class="eyebrow">Marketing agency</span><h2><a href="https://oplosmarketing.com/" target="_blank" rel="noopener noreferrer">Oplos Marketing</a></h2><p>Marketing agency website and brand presence.</p></div><div class="portfolio-facts"><a href="https://oplosmarketing.com/" target="_blank" rel="noopener noreferrer">Visit website ↗</a></div></div></article>
@@ -402,4 +445,27 @@ body{overflow-x:clip}
       menuButton.focus();
     }
   });
-  </script></body></html>
+  </script><script>
+(() => {
+  const revealSelector = 'main > section, .feature-card, .portfolio-item, .service-detail, .process-grid > *, .values-grid > *, .manifesto-grid > *, .contact-section > *, .about-story > *';
+  const candidates = [...document.querySelectorAll(revealSelector)].filter((el) => {
+    if (!el.matches('main > section')) return true;
+    return !el.querySelector('.feature-card,.portfolio-item,.service-detail,.process-grid > *, .values-grid > *, .manifesto-grid > *, .contact-section > *, .about-story > *');
+  });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  candidates.forEach((el, index) => {
+    el.classList.add('motion-item');
+    el.style.setProperty('--motion-delay', `${Math.min(index % 5, 4) * 70}ms`);
+  });
+  document.body.classList.add('motion-enabled');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+  candidates.forEach((el) => observer.observe(el));
+})();
+</script></body></html>
